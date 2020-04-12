@@ -9,7 +9,7 @@ def notifyMe(title,message):
         title = title,
         message = message,
         app_name = "Covid-19",
-        app_icon = "D:\Python\My Project\COVID-19 Notify in PC\cov.ico",
+        #app_icon = "D:\Python\My Project\COVID-19 Notify in PC\cov.ico",
         timeout = 20
     )
 
