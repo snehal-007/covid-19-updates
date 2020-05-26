@@ -54,17 +54,25 @@ if __name__ == "__main__":
                 gj.append(td.string)
             
             
-    # for World data
-    for witem in wsoup.find_all("div",class_="maincounter-number"):
-        for span in witem.find_all("span"):
-            #print(span)
-            world.append(span.get_text())
+    # # for World data
+    # for witem in wsoup.find_all("div",class_="maincounter-number"):
+    #     for span in witem.find_all("span"):
+    #         #print(span)
+    #         world.append(span.get_text())
 
+    # Latest World data
+    for witem in wsoup.find_all("table",class_="table table-bordered table-hover main_table_countries"):
+        for td in witem.find_all("tr")[8].find_all("td"):
+            # print(td.string)
+            world.append(td.string)
+
+
+    print(world)
 
     latest = []
     # Latest Data of India
     for initem in wsoup.find_all("table",class_="table table-bordered table-hover main_table_countries"):
-        for td in initem.find_all("tr")[19].find_all("td"):
+        for td in initem.find_all("tr")[18].find_all("td"):
             latest.append(td.string)
             # print(td.string)      
     
@@ -77,7 +85,7 @@ if __name__ == "__main__":
     
     
     nTitle = "Case Of COVID-19 of Gujarat"
-    nText = f"Active Case : {gj[2]}\nCured : {gj[3]}\nDeath : {gj[4]} "
+    nText = f"Total Case : {gj[2]}\nCured : {gj[3]}\nDeath : {gj[4]} "
     notifyMe(nTitle,nText)
 
     time.sleep(2)
@@ -87,13 +95,13 @@ if __name__ == "__main__":
     # notifyMe(nTitle,nText)
 
     nTitle = "Case Of COVID-19 of Latest INDIA"
-    nText = f"Total Case : {latest[2]}\nCured : {latest[6]}\nDeath : {latest[4]}"
+    nText = f"Total Case : {latest[2]}\nNew Cases : {latest[3]}\nCured : {latest[6]}\nDeath : {latest[4]}"
     notifyMe(nTitle,nText)
 
     time.sleep(2)
 
     nTitle = "Case Of COVID-19 of WORLD"
-    nText = f"Active Case : {world[0]}\nCured : {world[1]}\nDeath : {world[2]} "
+    nText = f"Total Case : {world[2]}\nNew Cases : {world[3]}\nCured : {world[6]}\nDeath : {world[4]} "
     notifyMe(nTitle,nText)
 
 
