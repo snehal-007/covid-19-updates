@@ -72,7 +72,7 @@ if __name__ == "__main__":
     latest = []
     # Latest Data of India
     for initem in wsoup.find_all("table",class_="table table-bordered table-hover main_table_countries"):
-        for td in initem.find_all("tr")[18].find_all("td"):
+        for td in initem.find_all("tr")[15].find_all("td"):
             latest.append(td.string)
             # print(td.string)      
     
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     
     
     nTitle = "Case Of COVID-19 of Gujarat"
-    nText = f"Total Case : {gj[2]}\nCured : {gj[3]}\nDeath : {gj[4]} "
+    nText = f"Total Case : {gj[5]}\nActive : {gj[2]}\nCured : {gj[3]}\nDeath : {gj[4]} "
     notifyMe(nTitle,nText)
 
     time.sleep(2)
