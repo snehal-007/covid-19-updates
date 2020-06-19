@@ -9,7 +9,7 @@ def notifyMe(title,message):
         title = title,
         message = message,
         app_name = "Covid-19",
-        app_icon = "D:\Python\My Project\COVID-19 Notify in PC\cov.ico",
+        #app_icon = "D:\Python\My Project\COVID-19 Notify in PC\cov.ico",
         timeout = 20
     )
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     latest = []
     # Latest Data of India
     for initem in wsoup.find_all("table",class_="table table-bordered table-hover main_table_countries"):
-        for td in initem.find_all("tr")[15].find_all("td"):
+        for td in initem.find_all("tr")[12].find_all("td"):
             latest.append(td.string)
             # print(td.string)      
     
